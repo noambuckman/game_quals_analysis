@@ -23,7 +23,14 @@ def replace_values(df):
     df = df.replace("Strongly agree (5)", 'Strongly agree')
 
     return df
-    
+
+def agreement_strings_to_numbers(df):
+    df = df.replace("Strongly disagree", 1)
+    df = df.replace('Somewhat disagree', 2)
+    df = df.replace('Neither agree nor disagree', 3)
+    df = df.replace('Somewhat agree', 4)
+    df = df.replace("Strongly agree", 5)
+    return df
 
 def combine_subject_questions(data):
     data1 = pd.DataFrame(data=None, columns=data.columns, index=data.index)
